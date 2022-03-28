@@ -1,0 +1,52 @@
+<form (ngSubmit)="insertEmploye()">
+    <div class="form-group">
+        <label for="name">name</label>
+        <input type="text" name="name" class="text form-control" [(ngModel)]="employe.name">
+    </div>
+    <div class="form-group">
+        <label for="email">email</label>
+        <input type="text" name="email" class="text form-control" [(ngModel)]="employe.email">
+    </div>
+    <div class="form-group">
+        <label for="age">age</label>
+        <input type="number" name="age" class="text form-control" [(ngModel)]="employe.age">
+    </div>
+    <div class="form-group">
+        <label for="phone_no">phone</label>
+        <input type="text" name="phone_no" class="text form-control" [(ngModel)]="employe.phone_no">
+    </div>
+    <div class="form-group">
+        <label for="gender">gender</label>
+        <input type="text" name="gender" class="text form-control" [(ngModel)]="employe.gender">
+    </div>
+    <button class="btn btn-dark btn-sm mt-4">valider</button>
+</form>
+
+<br>
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>age</th>
+            <th>phone</th>
+            <th>gender</th>
+            <th>action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employe of employes">
+            <th scope="row">{{employe.id}}</th>
+            <td>{{employe.name}}</td>
+            <td>{{employe.email}}</td>
+            <td>{{employe.age}}</td>
+            <td>{{employe.phone_no}}</td>
+            <td>{{employe.gender}}</td>
+            <td><button class="btn btn-danger btn-sm" (click)="deleteEmploye(employe.id)">delete</button></td>
+            <td><button class="btn btn-warning btn-sm mx-2" routerLink="update/{{employe.id}}">update</button></td>
+        </tr>
+    </tbody>
+</table>
